@@ -1,61 +1,39 @@
 package com.gwtcalc.client;
 
-import com.gwtcalc.shared.FieldVerifier;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Label;
+
+
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
+
 public class GwtCalculator implements EntryPoint {
-	/**
-	 * The message displayed to the user when the server cannot be reached or
-	 * returns an error.
-	 */
-	private static final String SERVER_ERROR = "An error occurred while "
-			+ "attempting to contact the server. Please check your network " + "connection and try again.";
-
-	/**
-	 * Create a remote service proxy to talk to the server-side Greeting service.
-	 */
-	private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
-
-	/**
-	 * This is the entry point method.
-	 */
+    private static CalcUiBinder uiBinder = GWT.create(CalcUiBinder.class);
+    
+    
 	public void onModuleLoad() {
-		final Button btnClear = new Button("clear");
-		final Button btnOne = new Button("1");
-		final Button btnTwo = new Button("2");
-		final Button btnThree = new Button("3");
-		final Button btnFour = new Button("4");
-		final Button btnFive = new Button("5");
-		final Button btnSix = new Button("6");
-		final Button btnSeven = new Button("7");
-		final Button btnEight = new Button("8");
-		final Button btnNine = new Button("9");
-		final Button btnZero = new Button("0");
-		final Button btnDiv = new Button("/");
-		final Button btnMult = new Button("*");
-		final Button btnSub = new Button("-");
-		final Button btnAdd = new Button("+");
-		final Button btnAns = new Button("=");
-		final Button btnDot = new Button(".");
-		final TextBox txtBox = new TextBox();
-		txtBox.setText("0");
+		CalcUiBinder calculatorWidget = new CalcUiBinder();
+		RootPanel.get().add(calculatorWidget);
+//		final Button btnClear = new Button("clear");
+//		final Button btnOne = new Button("1");
+//		final Button btnTwo = new Button("2");
+//		final Button btnThree = new Button("3");
+//		final Button btnFour = new Button("4");
+//		final Button btnFive = new Button("5");
+//		final Button btnSix = new Button("6");
+//		final Button btnSeven = new Button("7");
+//		final Button btnEight = new Button("8");
+//		final Button btnNine = new Button("9");
+//		final Button btnZero = new Button("0");
+//		final Button btnDiv = new Button("/");
+//		final Button btnMult = new Button("*");
+//		final Button btnSub = new Button("-");
+//		final Button btnAdd = new Button("+");
+//		final Button btnAns = new Button("=");
+//		final Button btnDot = new Button(".");
+//		final TextBox txtBox = new TextBox();
+//		txtBox.setText("0");
 
 		// We can add style names to widgets
 //		add.addStyleName("Button");
@@ -66,31 +44,31 @@ public class GwtCalculator implements EntryPoint {
 
 		// Add the nameField and sendButton to the RootPanel
 		// Use RootPanel.get() to get the entire body element
-		RootPanel.get("txtContainer").add(txtBox);
-		RootPanel.get("btnClear").add(btnClear);
-		RootPanel.get("btnSeven").add(btnSeven);
-		RootPanel.get("btnEight").add(btnEight);
-		RootPanel.get("btnNine").add(btnNine);
-		RootPanel.get("btnDivide").add(btnDiv);
-		RootPanel.get("btnFour").add(btnFour);
-		RootPanel.get("btnFive").add(btnFive);
-		RootPanel.get("btnSix").add(btnSix);
-		RootPanel.get("btnMult").add(btnMult);
-		RootPanel.get("btnOne").add(btnOne);
-		RootPanel.get("btnTwo").add(btnTwo);
-		RootPanel.get("btnThree").add(btnThree);
-		RootPanel.get("btnSub").add(btnSub);
-		RootPanel.get("btnZero").add(btnZero);
-		RootPanel.get("btnDot").add(btnDot);
-		RootPanel.get("btnAns").add(btnAns);
-		RootPanel.get("btnAdd").add(btnAdd);
+//		RootPanel.get("txtContainer").add(txtBox);
+//		RootPanel.get("btnClear").add(btnClear);
+//		RootPanel.get("btnSeven").add(btnSeven);
+//		RootPanel.get("btnEight").add(btnEight);
+//		RootPanel.get("btnNine").add(btnNine);
+//		RootPanel.get("btnDivide").add(btnDiv);
+//		RootPanel.get("btnFour").add(btnFour);
+//		RootPanel.get("btnFive").add(btnFive);
+//		RootPanel.get("btnSix").add(btnSix);
+//		RootPanel.get("btnMult").add(btnMult);
+//		RootPanel.get("btnOne").add(btnOne);
+//		RootPanel.get("btnTwo").add(btnTwo);
+//		RootPanel.get("btnThree").add(btnThree);
+//		RootPanel.get("btnSub").add(btnSub);
+//		RootPanel.get("btnZero").add(btnZero);
+//		RootPanel.get("btnDot").add(btnDot);
+//		RootPanel.get("btnAns").add(btnAns);
+//		RootPanel.get("btnAdd").add(btnAdd);
+//		
 		
-		
-		
+//		RootPanel.get().add(new CalcUiBinder());
 		
 
 		// Focus the cursor on the name field when the app loads
-		txtBox.setFocus(true);
+//		txtBox.setFocus(true);
 		
 
 		// Create the popup dialog box
